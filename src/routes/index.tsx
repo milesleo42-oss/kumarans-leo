@@ -162,7 +162,7 @@ function Index() {
   return (
     <div data-reveal-root className="bg-brand-cream text-brand-onyx selection:bg-brand-gold/20" style={{ fontFamily: "var(--font-sans)" }}>
       {/* Navigation */}
-      <nav className="flex items-center justify-between px-6 md:px-12 py-6 border-b border-brand-onyx/5">
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-12 py-6 border-b border-brand-onyx/10 bg-brand-cream/85 backdrop-blur supports-[backdrop-filter]:bg-brand-cream/70">
         <a href="#top" className="text-xl font-bold tracking-tight uppercase leading-none" style={{ fontFamily: "var(--font-serif)" }}>
           Kumarans
           <br />

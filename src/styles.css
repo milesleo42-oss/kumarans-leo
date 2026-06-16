@@ -19,6 +19,11 @@
  */
 
 @theme inline {
+  --color-brand-gold: #c5a059;
+  --color-brand-onyx: #1a1a1a;
+  --color-brand-cream: #faf9f6;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

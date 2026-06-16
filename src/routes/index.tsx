@@ -79,16 +79,43 @@ const testimonials = [
     quote:
       "Every picture looks so natural and beautifully captured. The photography feels very real and lively, as if the moments are happening right in front of us.",
     name: "Ragul Krish",
+    role: "Wedding · Puducherry",
   },
   {
     quote:
       "The results were really amazing and beyond my expectations. The album quality is too good, and every moment was captured beautifully.",
     name: "Praveen Karthi",
+    role: "Reception · Chennai",
   },
   {
     quote:
       "We just finished looking through our album, and we are absolutely speechless. You captured the exact feeling of the day — the lighting, the composition, the small candid moments.",
     name: "Vignesh Vicky",
+    role: "Wedding · Madurai",
+  },
+  {
+    quote:
+      "Kumaran and his team made us feel so comfortable through the whole day. The candid frames feel like they were taken by a close friend.",
+    name: "Anitha Ramesh",
+    role: "Engagement · Pondicherry",
+  },
+  {
+    quote:
+      "Beautiful storytelling. Every page of our album feels like a memory we get to relive again and again. Worth every rupee.",
+    name: "Karthik Subramanian",
+    role: "Wedding · Thanjavur",
+  },
+  {
+    quote:
+      "The candid shots of our parents and grandparents are priceless. Thank you for capturing emotions we didn't even notice on the day.",
+    name: "Divya Mohan",
+    role: "Wedding · Coimbatore",
+  },
+  {
+    quote:
+      "Professional, punctual, and incredibly talented. Our pre-wedding shoot turned out exactly the way we dreamed.",
+    name: "Sandeep Iyer",
+    role: "Pre-wedding · ECR",
   },
 ];
 
@@ -345,27 +372,64 @@ function Index() {
       </section>
 
       {/* Reviews */}
-      <section id="reviews" className="py-24 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-brand-gold text-xs uppercase tracking-[0.3em]">Voices of Trust</span>
-            <p className="mt-4 text-brand-onyx/60">5.0 ★ on Google · 49 reviews</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {testimonials.map((t) => (
-              <figure key={t.name} className="space-y-6">
-                <blockquote
-                  className="text-xl italic leading-relaxed text-brand-onyx/90"
-                  style={{ fontFamily: "var(--font-serif)" }}
+      <section id="reviews" className="py-24 overflow-hidden">
+        <div className="max-w-5xl mx-auto text-center mb-16 px-6 md:px-12">
+          <span className="text-brand-gold text-xs uppercase tracking-[0.3em]">Voices of Trust</span>
+          <h2
+            className="mt-4 text-4xl md:text-5xl leading-tight"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            What our couples <span className="italic">say</span>
+          </h2>
+          <p className="mt-4 text-brand-onyx/60 text-sm">5.0 ★ on Google · 49 reviews</p>
+        </div>
+
+        <div
+          className="marquee-mask relative"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div className="marquee-track flex gap-6 md:gap-8">
+            {[...testimonials, ...testimonials].map((t, i) => {
+              const initials = t.name
+                .split(" ")
+                .map((n) => n[0])
+                .slice(0, 2)
+                .join("");
+              return (
+                <figure
+                  key={`${t.name}-${i}`}
+                  className="w-[320px] md:w-[400px] shrink-0 bg-brand-cream border border-brand-onyx/10 p-8 flex flex-col justify-between gap-6"
                 >
-                  “{t.quote}”
-                </blockquote>
-                <figcaption className="flex items-center gap-4">
-                  <span className="h-px w-8 bg-brand-gold" />
-                  <span className="text-xs uppercase tracking-widest font-bold">{t.name}</span>
-                </figcaption>
-              </figure>
-            ))}
+                  <div>
+                    <div className="text-brand-gold text-sm tracking-widest mb-4">★★★★★</div>
+                    <blockquote
+                      className="text-base md:text-lg italic leading-relaxed text-brand-onyx/85"
+                      style={{ fontFamily: "var(--font-serif)" }}
+                    >
+                      “{t.quote}”
+                    </blockquote>
+                  </div>
+                  <figcaption className="flex items-center gap-4 pt-4 border-t border-brand-onyx/10">
+                    <span
+                      aria-hidden
+                      className="size-12 rounded-full bg-brand-onyx text-brand-cream flex items-center justify-center text-sm font-bold tracking-wider"
+                      style={{ fontFamily: "var(--font-serif)" }}
+                    >
+                      {initials}
+                    </span>
+                    <div className="text-left">
+                      <div className="text-xs uppercase tracking-widest font-bold">{t.name}</div>
+                      <div className="text-[11px] text-brand-onyx/50 mt-1">{t.role}</div>
+                    </div>
+                  </figcaption>
+                </figure>
+              );
+            })}
           </div>
         </div>
       </section>

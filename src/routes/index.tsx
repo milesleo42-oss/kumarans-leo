@@ -8,6 +8,9 @@ import portfolio1 from "@/assets/portfolio-1.jpg";
 import portfolio2 from "@/assets/portfolio-2.jpg";
 import portfolio3 from "@/assets/portfolio-3.jpg";
 import portfolio4 from "@/assets/portfolio-4.jpg";
+import avatar1 from "@/assets/avatar-1.jpg";
+import avatar2 from "@/assets/avatar-2.jpg";
+import avatar3 from "@/assets/avatar-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -202,10 +205,10 @@ function Index() {
               celebrations — rooted in South Indian warmth.
             </p>
             <div className="flex items-center gap-4">
-              <div className="flex -space-x-2" aria-hidden>
-                <div className="size-10 rounded-full border-2 border-brand-cream bg-brand-gold/20" />
-                <div className="size-10 rounded-full border-2 border-brand-cream bg-brand-gold/40" />
-                <div className="size-10 rounded-full border-2 border-brand-cream bg-brand-gold/60" />
+              <div className="flex -space-x-3" aria-hidden>
+                <img src={avatar1} alt="" loading="lazy" width={512} height={512} className="size-10 rounded-full border-2 border-brand-cream object-cover shadow-sm" />
+                <img src={avatar2} alt="" loading="lazy" width={512} height={512} className="size-10 rounded-full border-2 border-brand-cream object-cover shadow-sm" />
+                <img src={avatar3} alt="" loading="lazy" width={512} height={512} className="size-10 rounded-full border-2 border-brand-cream object-cover shadow-sm" />
               </div>
               <div className="text-xs tracking-tight">
                 <span className="font-bold">5.0 ★ Rating</span>

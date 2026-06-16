@@ -312,7 +312,14 @@ function Index() {
             <div className="flex gap-6 text-[10px] uppercase tracking-widest text-brand-onyx/60">
               <a href="#" className="hover:text-brand-gold">Instagram</a>
               <a href="#" className="hover:text-brand-gold">Facebook</a>
-              <a href="https://wa.me/919600769401" className="hover:text-brand-gold">WhatsApp</a>
+              <a
+                href="https://wa.me/919600769401"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-gold"
+              >
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>

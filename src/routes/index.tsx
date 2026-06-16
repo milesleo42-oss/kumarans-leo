@@ -225,7 +225,6 @@ function Index() {
               height={1504}
               className="w-full aspect-[4/5] object-cover shadow-2xl shadow-brand-onyx/20"
             />
-            <div className="absolute -bottom-8 -left-8 size-48 border border-brand-gold/30 hidden md:block -z-0" />
           </div>
         </div>
       </header>

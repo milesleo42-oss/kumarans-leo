@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import heroImg from "@/assets/hero.jpg";
 import weddingImg from "@/assets/service-wedding.jpg";
 import babyImg from "@/assets/service-baby.jpg";
@@ -120,8 +121,43 @@ const testimonials = [
 ];
 
 function Index() {
+  useEffect(() => {
+    const root = document.querySelector<HTMLElement>("[data-reveal-root]");
+    if (!root) return;
+
+    // Auto-tag content blocks for reveal animation.
+    const selector = [
+      "section > div",
+      "section figure",
+      "section h2",
+      "header > div > div",
+      "footer > div > div",
+      ".marquee-mask",
+    ].join(",");
+
+    const targets = Array.from(root.querySelectorAll<HTMLElement>(selector)).filter(
+      (el) => !el.closest(".marquee-track") || el.classList.contains("marquee-mask"),
+    );
+    targets.forEach((el) => el.setAttribute("data-reveal", ""));
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+    );
+    targets.forEach((el) => io.observe(el));
+
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="bg-brand-cream text-brand-onyx selection:bg-brand-gold/20" style={{ fontFamily: "var(--font-sans)" }}>
+    <div data-reveal-root className="bg-brand-cream text-brand-onyx selection:bg-brand-gold/20" style={{ fontFamily: "var(--font-sans)" }}>
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 md:px-12 py-6 border-b border-brand-onyx/5">
         <a href="#top" className="text-xl font-bold tracking-tight uppercase leading-none" style={{ fontFamily: "var(--font-serif)" }}>

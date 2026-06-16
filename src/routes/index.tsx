@@ -3,6 +3,10 @@ import heroImg from "@/assets/hero.jpg";
 import weddingImg from "@/assets/service-wedding.jpg";
 import babyImg from "@/assets/service-baby.jpg";
 import engagementImg from "@/assets/service-engagement.jpg";
+import portfolio1 from "@/assets/portfolio-1.jpg";
+import portfolio2 from "@/assets/portfolio-2.jpg";
+import portfolio3 from "@/assets/portfolio-3.jpg";
+import portfolio4 from "@/assets/portfolio-4.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -161,32 +165,147 @@ function Index() {
       </header>
 
       {/* Portfolio strip */}
-      <section id="portfolio" className="px-6 md:px-12 pb-24 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-brand-onyx/10 pb-4 mb-10 gap-4">
-          <h2 className="text-3xl italic" style={{ fontFamily: "var(--font-serif)" }}>
-            Selected Frames
-          </h2>
-          <span className="text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
-            Weddings · Receptions · Candids
-          </span>
+      <section id="portfolio" className="px-6 md:px-12 py-24 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-14 border-b border-brand-onyx/10 pb-8">
+          <div className="md:col-span-7">
+            <p className="text-brand-gold text-[10px] uppercase tracking-[0.4em] mb-4">The Archive · 2023—2025</p>
+            <h2 className="text-5xl md:text-6xl leading-[0.95]" style={{ fontFamily: "var(--font-serif)" }}>
+              Selected <span className="italic">Frames</span>
+            </h2>
+          </div>
+          <div className="md:col-span-5 md:text-right">
+            <p className="text-brand-onyx/60 text-sm leading-relaxed max-w-sm md:ml-auto">
+              A small edit from the last two seasons — temple ceremonies, candid family moments,
+              and reception portraits across Puducherry and Tamil Nadu.
+            </p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          <img
-            src={weddingImg}
-            alt="Bride's hand with mehendi and gold ring"
-            loading="lazy"
-            width={800}
-            height={1024}
-            className="md:col-span-5 w-full aspect-[4/5] object-cover"
-          />
-          <img
-            src={engagementImg}
-            alt="Couple in Puducherry at golden hour"
-            loading="lazy"
-            width={800}
-            height={1024}
-            className="md:col-span-7 w-full aspect-video md:aspect-[16/10] object-cover"
-          />
+
+        {/* Editorial collage */}
+        <div className="grid grid-cols-12 gap-4 md:gap-6">
+          {/* Row 1 — tall portrait + wide ceremony */}
+          <figure className="col-span-12 md:col-span-5 group overflow-hidden">
+            <div className="overflow-hidden">
+              <img
+                src={portfolio1}
+                alt="Bride in silver bridal jewellery by a window"
+                loading="lazy"
+                width={1000}
+                height={1500}
+                className="w-full aspect-[2/3] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
+              <span>Bridal · Madurai</span>
+              <span className="text-brand-gold">01 / 08</span>
+            </figcaption>
+          </figure>
+
+          <figure className="col-span-12 md:col-span-7 group overflow-hidden md:mt-16">
+            <div className="overflow-hidden">
+              <img
+                src={portfolio2}
+                alt="Sacred fire and priest during a Tamil wedding ceremony"
+                loading="lazy"
+                width={1600}
+                height={900}
+                className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
+              <span>Ceremony · Thiruvannamalai</span>
+              <span className="text-brand-gold">02 / 08</span>
+            </figcaption>
+          </figure>
+
+          {/* Row 2 — detail + blessing + engagement */}
+          <figure className="col-span-6 md:col-span-4 group overflow-hidden">
+            <div className="overflow-hidden">
+              <img
+                src={weddingImg}
+                alt="Bride's hand with mehendi and gold rings"
+                loading="lazy"
+                width={800}
+                height={1024}
+                className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
+              <span>Mehendi · Detail</span>
+              <span className="text-brand-gold">03</span>
+            </figcaption>
+          </figure>
+
+          <figure className="col-span-6 md:col-span-4 group overflow-hidden">
+            <div className="overflow-hidden">
+              <img
+                src={portfolio4}
+                alt="Parents blessing the bride at a Tamil wedding"
+                loading="lazy"
+                width={800}
+                height={1200}
+                className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
+              <span>Candid · Blessing</span>
+              <span className="text-brand-gold">04</span>
+            </figcaption>
+          </figure>
+
+          <figure className="col-span-12 md:col-span-4 group overflow-hidden">
+            <div className="overflow-hidden">
+              <img
+                src={engagementImg}
+                alt="Engaged couple walking in Puducherry French quarter"
+                loading="lazy"
+                width={800}
+                height={1024}
+                className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
+              <span>Engagement · Pondicherry</span>
+              <span className="text-brand-gold">05</span>
+            </figcaption>
+          </figure>
+
+          {/* Row 3 — full-width reception */}
+          <figure className="col-span-12 group overflow-hidden mt-4">
+            <div className="overflow-hidden">
+              <img
+                src={portfolio3}
+                alt="Reception stage with chandeliers and floral backdrop"
+                loading="lazy"
+                width={1200}
+                height={1200}
+                className="w-full aspect-[21/9] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
+              <span>Reception · Chennai</span>
+              <span className="text-brand-gold">06 / 08</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        {/* CTA strip */}
+        <div className="mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-brand-onyx/10 pt-10">
+          <p className="text-brand-onyx/70 max-w-md text-sm leading-relaxed">
+            A complete album typically holds 400—600 photographs. Reach out to view a full wedding
+            story or to browse the printed albums in person at our Puducherry studio.
+          </p>
+          <a
+            href="https://wa.me/919600769401"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 text-sm uppercase tracking-[0.3em] text-brand-onyx hover:text-brand-gold transition-colors"
+          >
+            <span className="border-b border-brand-onyx pb-1 group-hover:border-brand-gold">
+              Request Full Portfolio
+            </span>
+            <span aria-hidden>→</span>
+          </a>
         </div>
       </section>
 

@@ -306,7 +306,7 @@ function Index() {
             ))}
           </div>
           <p className="mt-4 text-center text-[10px] uppercase tracking-[0.3em] text-brand-onyx/40">
-            Hover to pause · {portfolioFrames.length} frames from recent weddings
+            HOVER TO PAUSE ·&nbsp;FRAMES FROM RECENT WEDDINGS
           </p>
         </div>
 

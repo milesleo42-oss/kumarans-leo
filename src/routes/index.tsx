@@ -192,6 +192,7 @@ function Index() {
           <a href="#portfolio" className="hover:text-brand-gold transition-colors">The Portfolio</a>
           <a href="#services" className="hover:text-brand-gold transition-colors">Weddings</a>
           <a href="#reviews" className="hover:text-brand-gold transition-colors">Reviews</a>
+          <a href="#enquiry" className="hover:text-brand-gold transition-colors">Enquiry</a>
           <a href="#contact" className="hover:text-brand-gold transition-colors">Contact</a>
         </div>
         <a
@@ -425,6 +426,158 @@ function Index() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Enquiry */}
+      <section id="enquiry" className="bg-brand-onyx/[0.03] border-y border-brand-onyx/10 py-24 px-6 md:px-12">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+          <div className="md:col-span-5">
+            <p className="text-brand-gold text-[10px] uppercase tracking-[0.4em] mb-4">Enquiry</p>
+            <h2 className="text-4xl md:text-5xl leading-[1.05]" style={{ fontFamily: "var(--font-serif)" }}>
+              Tell us about <span className="italic">your day.</span>
+            </h2>
+            <p className="mt-6 text-sm text-brand-onyx/60 leading-relaxed max-w-sm">
+              Browsing from your desktop? Share a few details and we'll reach out personally with
+              availability, pricing, and a portfolio matched to your event.
+            </p>
+            <p className="mt-8 text-[10px] uppercase tracking-[0.3em] text-brand-onyx/40">
+              Replies usually within 24 hours
+            </p>
+          </div>
+
+          <form
+            className="md:col-span-7 bg-brand-cream border border-brand-onyx/10 p-8 md:p-10 space-y-6 shadow-sm"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const f = new FormData(e.currentTarget);
+              const name = String(f.get("name") || "").trim().slice(0, 100);
+              const phone = String(f.get("phone") || "").trim().slice(0, 20);
+              const email = String(f.get("email") || "").trim().slice(0, 120);
+              const eventType = String(f.get("eventType") || "").trim();
+              const location = String(f.get("location") || "").trim().slice(0, 120);
+              const date = String(f.get("date") || "").trim();
+              const notes = String(f.get("notes") || "").trim().slice(0, 500);
+              if (!name || !phone || !eventType || !location) return;
+              const msg = [
+                "New enquiry from website",
+                `Name: ${name}`,
+                `Phone: ${phone}`,
+                email ? `Email: ${email}` : null,
+                `Event: ${eventType}`,
+                `Location: ${location}`,
+                date ? `Date: ${date}` : null,
+                notes ? `Notes: ${notes}` : null,
+              ]
+                .filter(Boolean)
+                .join("\n");
+              window.open(
+                `https://wa.me/919600769401?text=${encodeURIComponent(msg)}`,
+                "_blank",
+                "noopener,noreferrer",
+              );
+            }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <label className="flex flex-col gap-2">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-brand-onyx/60">Event Type *</span>
+                <select
+                  name="eventType"
+                  required
+                  defaultValue=""
+                  className="bg-transparent border-b border-brand-onyx/30 py-2 text-sm focus:outline-none focus:border-brand-gold transition-colors"
+                >
+                  <option value="" disabled>Select an event</option>
+                  <option value="Wedding">Wedding</option>
+                  <option value="Engagement">Engagement</option>
+                  <option value="Reception">Reception</option>
+                  <option value="Pre-Wedding Shoot">Pre-Wedding Shoot</option>
+                  <option value="Baby Shoot">Baby Shoot</option>
+                  <option value="Family Portrait">Family Portrait</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-brand-onyx/60">Event Location *</span>
+                <input
+                  type="text"
+                  name="location"
+                  required
+                  maxLength={120}
+                  placeholder="City, venue or area"
+                  className="bg-transparent border-b border-brand-onyx/30 py-2 text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-brand-onyx/30"
+                />
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-brand-onyx/60">Event Date</span>
+                <input
+                  type="date"
+                  name="date"
+                  className="bg-transparent border-b border-brand-onyx/30 py-2 text-sm focus:outline-none focus:border-brand-gold transition-colors"
+                />
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-brand-onyx/60">Your Name *</span>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  maxLength={100}
+                  placeholder="Full name"
+                  className="bg-transparent border-b border-brand-onyx/30 py-2 text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-brand-onyx/30"
+                />
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-brand-onyx/60">Phone / WhatsApp *</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  maxLength={20}
+                  placeholder="+91 ..."
+                  className="bg-transparent border-b border-brand-onyx/30 py-2 text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-brand-onyx/30"
+                />
+              </label>
+
+              <label className="flex flex-col gap-2">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-brand-onyx/60">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  maxLength={120}
+                  placeholder="you@email.com"
+                  className="bg-transparent border-b border-brand-onyx/30 py-2 text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-brand-onyx/30"
+                />
+              </label>
+            </div>
+
+            <label className="flex flex-col gap-2">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-brand-onyx/60">Anything else?</span>
+              <textarea
+                name="notes"
+                rows={3}
+                maxLength={500}
+                placeholder="Guest count, style preferences, references..."
+                className="bg-transparent border-b border-brand-onyx/30 py-2 text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-brand-onyx/30 resize-none"
+              />
+            </label>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-brand-onyx/40">
+                * Required fields
+              </p>
+              <button
+                type="submit"
+                className="bg-brand-onyx text-brand-cream px-8 py-3 text-[10px] uppercase tracking-[0.3em] hover:bg-brand-gold transition-colors"
+              >
+                Submit Details
+              </button>
+            </div>
+          </form>
         </div>
       </section>
 

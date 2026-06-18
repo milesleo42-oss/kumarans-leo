@@ -265,112 +265,49 @@ function Index() {
           </div>
         </div>
 
-        {/* Editorial collage */}
-        <div className="grid grid-cols-12 gap-4 md:gap-6">
-          {/* Row 1 — tall portrait + wide ceremony */}
-          <figure className="col-span-12 md:col-span-5 group overflow-hidden">
-            <div className="overflow-hidden">
-              <img
-                src={portfolio1}
-                alt="Bride in silver bridal jewellery by a window"
-                loading="lazy"
-                width={1000}
-                height={1500}
-                className="w-full aspect-[2/3] object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
-              <span>Bridal · Madurai</span>
-              <span className="text-brand-gold">01 / 08</span>
-            </figcaption>
-          </figure>
-
-          <figure className="col-span-12 md:col-span-7 group overflow-hidden md:mt-16">
-            <div className="overflow-hidden">
-              <img
-                src={portfolio2}
-                alt="Sacred fire and priest during a Tamil wedding ceremony"
-                loading="lazy"
-                width={1600}
-                height={900}
-                className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
-              <span>Ceremony · Thiruvannamalai</span>
-              <span className="text-brand-gold">02 / 08</span>
-            </figcaption>
-          </figure>
-
-          {/* Row 2 — detail + blessing + engagement */}
-          <figure className="col-span-6 md:col-span-4 group overflow-hidden">
-            <div className="overflow-hidden">
-              <img
-                src={weddingImg}
-                alt="Bride's hand with mehendi and gold rings"
-                loading="lazy"
-                width={800}
-                height={1024}
-                className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
-              <span>Mehendi · Detail</span>
-              <span className="text-brand-gold">03</span>
-            </figcaption>
-          </figure>
-
-          <figure className="col-span-6 md:col-span-4 group overflow-hidden">
-            <div className="overflow-hidden">
-              <img
-                src={portfolio4}
-                alt="Parents blessing the bride at a Tamil wedding"
-                loading="lazy"
-                width={800}
-                height={1200}
-                className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
-              <span>Candid · Blessing</span>
-              <span className="text-brand-gold">04</span>
-            </figcaption>
-          </figure>
-
-          <figure className="col-span-12 md:col-span-4 group overflow-hidden">
-            <div className="overflow-hidden">
-              <img
-                src={engagementImg}
-                alt="Engaged couple walking in Puducherry French quarter"
-                loading="lazy"
-                width={800}
-                height={1024}
-                className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
-              <span>Engagement · Pondicherry</span>
-              <span className="text-brand-gold">05</span>
-            </figcaption>
-          </figure>
-
-          {/* Row 3 — full-width reception */}
-          <figure className="col-span-12 group overflow-hidden mt-4">
-            <div className="overflow-hidden">
-              <img
-                src={portfolio3}
-                alt="Reception stage with chandeliers and floral backdrop"
-                loading="lazy"
-                width={1200}
-                height={1200}
-                className="w-full aspect-[21/9] object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <figcaption className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-brand-onyx/50">
-              <span>Reception · Chennai</span>
-              <span className="text-brand-gold">06 / 08</span>
-            </figcaption>
-          </figure>
+        {/* Auto-sliding marquee of frames */}
+        <div
+          className="marquee-mask relative overflow-hidden"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%)",
+          }}
+        >
+          <div className="marquee-track flex gap-6">
+            {[...portfolioFrames, ...portfolioFrames].map((frame, i) => (
+              <figure
+                key={i}
+                className="group relative w-[260px] md:w-[340px] shrink-0 overflow-hidden"
+                aria-hidden={i >= portfolioFrames.length ? true : undefined}
+              >
+                <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between gap-3 bg-gradient-to-b from-brand-onyx/70 via-brand-onyx/30 to-transparent p-4 text-brand-cream">
+                  <div className="min-w-0">
+                    <p className="truncate text-[11px] uppercase tracking-[0.3em]">{frame.event}</p>
+                    <p className="truncate text-[10px] text-brand-cream/70 tracking-wider">{frame.date}</p>
+                  </div>
+                  <span className="shrink-0 text-[10px] text-brand-gold tracking-[0.3em]">
+                    {String((i % portfolioFrames.length) + 1).padStart(2, "0")}
+                    <span className="text-brand-cream/40"> / {portfolioFrames.length}</span>
+                  </span>
+                </div>
+                <div className="overflow-hidden">
+                  <img
+                    src={frame.img}
+                    alt={`${frame.event} — ${frame.date}`}
+                    loading="lazy"
+                    width={800}
+                    height={1100}
+                    className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+              </figure>
+            ))}
+          </div>
+          <p className="mt-4 text-center text-[10px] uppercase tracking-[0.3em] text-brand-onyx/40">
+            Hover to pause · {portfolioFrames.length} frames from recent weddings
+          </p>
         </div>
 
         {/* CTA strip */}

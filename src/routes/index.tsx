@@ -78,6 +78,24 @@ const services = [
   },
 ];
 
+const portfolioFrames = [
+  { img: portfolio1, event: "Bridal Portrait", date: "Madurai · Feb 2025" },
+  { img: portfolio2, event: "Temple Ceremony", date: "Thiruvannamalai · Jan 2025" },
+  { img: weddingImg, event: "Mehendi Detail", date: "Chennai · Dec 2024" },
+  { img: portfolio4, event: "Parents' Blessing", date: "Tanjore · Nov 2024" },
+  { img: engagementImg, event: "Engagement", date: "Pondicherry · Oct 2024" },
+  { img: portfolio3, event: "Reception Stage", date: "Chennai · Sep 2024" },
+  { img: heroImg, event: "Couple Candid", date: "Auroville · Aug 2024" },
+  { img: babyImg, event: "Baby Shoot", date: "Puducherry · Jul 2024" },
+  { img: portfolio2, event: "Sacred Fire", date: "Kumbakonam · Jun 2024" },
+  { img: portfolio1, event: "Bridal Jewellery", date: "Madurai · May 2024" },
+  { img: portfolio4, event: "Family Portrait", date: "Coimbatore · Apr 2024" },
+  { img: engagementImg, event: "Pre-Wedding Walk", date: "ECR · Mar 2024" },
+  { img: portfolio3, event: "Sangeet Night", date: "Chennai · Feb 2024" },
+  { img: weddingImg, event: "Garland Exchange", date: "Trichy · Jan 2024" },
+  { img: heroImg, event: "Marigold Moment", date: "Puducherry · Dec 2023" },
+];
+
 const testimonials = [
   {
     quote:

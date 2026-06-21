@@ -198,7 +198,7 @@ function Index() {
         <button
           type="button"
           onClick={() => {
-            const msg = "Hi Kumarans! 📸 I'd love to book a session. Can you share your availability and packages?";
+            const msg = "Hi Kumaran Photografii !  I'd love to book a session. Can you share your availability and packages?";
             window.open(`https://wa.me/919600769401?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
           }}
           className="px-5 py-2 border border-brand-onyx text-[10px] uppercase tracking-widest hover:bg-brand-onyx hover:text-brand-cream transition-all"
@@ -632,7 +632,7 @@ function Index() {
                 <button
                   type="button"
                   onClick={() => {
-                    const msg = "Hi Kumarans! 📸 I'd love to book a session. Can you share your availability and packages?";
+                    const msg = "Hi Kumaran Photografii !  I'd love to book a session. Can you share your availability and packages?";
                     window.open(`https://wa.me/919600769401?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
                   }}
                   className="text-brand-gold text-sm border-b border-brand-gold pb-1 hover:text-brand-onyx transition-colors uppercase tracking-widest"

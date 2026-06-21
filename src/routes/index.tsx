@@ -195,12 +195,16 @@ function Index() {
           <a href="#enquiry" className="hover:text-brand-gold transition-colors">Enquiry</a>
           <a href="#contact" className="hover:text-brand-gold transition-colors">Contact</a>
         </div>
-        <a
-          href="tel:+919600769401"
+        <button
+          type="button"
+          onClick={() => {
+            const msg = "Hi Kumarans! 📸 I'd love to book a session. Can you share your availability and packages?";
+            window.open(`https://wa.me/919600769401?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+          }}
           className="px-5 py-2 border border-brand-onyx text-[10px] uppercase tracking-widest hover:bg-brand-onyx hover:text-brand-cream transition-all"
         >
           Book a Session
-        </a>
+        </button>
       </nav>
 
       {/* Hero */}
@@ -625,14 +629,16 @@ function Index() {
                 >
                   Call to Book
                 </a>
-                <a
-                  href="https://wa.me/919600769401"
-                  target="_blank"
-                  rel="noreferrer"
+                <button
+                  type="button"
+                  onClick={() => {
+                    const msg = "Hi Kumarans! 📸 I'd love to book a session. Can you share your availability and packages?";
+                    window.open(`https://wa.me/919600769401?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+                  }}
                   className="text-brand-gold text-sm border-b border-brand-gold pb-1 hover:text-brand-onyx transition-colors uppercase tracking-widest"
                 >
                   WhatsApp Inquiry
-                </a>
+                </button>
               </div>
             </div>
           </div>

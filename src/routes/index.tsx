@@ -471,11 +471,13 @@ function Index() {
               ]
                 .filter(Boolean)
                 .join("\n");
-              window.open(
-                `https://wa.me/919600769401?text=${encodeURIComponent(msg)}`,
-                "_blank",
-                "noopener,noreferrer",
+              const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent,
               );
+              const url = isMobile
+                ? `https://wa.me/919600769401?text=${encodeURIComponent(msg)}`
+                : `https://web.whatsapp.com/send?phone=919600769401&text=${encodeURIComponent(msg)}`;
+              window.open(url, "_blank", "noopener,noreferrer");
             }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
